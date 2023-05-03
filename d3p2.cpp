@@ -20,13 +20,15 @@ int main() {
                 if (line2.find(line1[i]) != string::npos
                  && line3.find(line1[i]) != string::npos) {
                     char target =  line1[i];
+                    cout << target << endl;
                     if ('a' <= target && target <= 'z') {
                         sum += target - 96;
                     } else {
                         sum += target - 38;
                     }
+                    break;
                 }
-                break;
+                
             }
         }
         cout << sum << endl;
