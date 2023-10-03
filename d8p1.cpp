@@ -1,5 +1,4 @@
 // Day 8: Treetop Tree House
-// --- Day 6: Tuning Trouble ---
 #include <fstream>
 #include <iostream>
 #include <string>
