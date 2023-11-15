@@ -27,16 +27,19 @@ int main()
         string line;
         int cycle = 0;
         int x = 1;
-        int sum = 0;
+        vector<char> crt;
+        for (int i = 0; i < 240; ++i)
+        {
+            crt.push_back('.');
+        }
         while (getline(newfile, line))
         {
-            set<int> signal_check = {20, 60, 100, 140, 180, 220};
             if (line.substr(0, 4) == "noop")
             {
                 cycle++;
-                if (signal_check.find(cycle) != signal_check.end())
+                if ((cycle - 1) % 40 == x || (cycle - 1) % 40 == x - 1 || (cycle - 1) % 40 == x + 1)
                 {
-                    sum += cycle * x;
+                    crt[cycle - 1] = '#';
                 }
             }
             else if (line.substr(0, 4) == "addx")
@@ -44,15 +47,22 @@ int main()
                 for (int i = 0; i < 2; ++i)
                 {
                     cycle++;
-                    if (signal_check.find(cycle) != signal_check.end())
+                    if ((cycle - 1) % 40 == x || (cycle - 1) % 40 == x - 1 || (cycle - 1) % 40 == x + 1)
                     {
-                        sum += cycle * x;
+                        crt[cycle - 1] = '#';
                     }
                 }
                 x += stoi(split_str(line)[1]);
             }
         }
-        cout << sum << endl;
+        for (int i = 0; i < 240; ++i)
+        {
+            if (i % 40 == 0)
+            {
+                cout << endl;
+            }
+            cout << crt[i];
+        }
     }
     newfile.close();
 
