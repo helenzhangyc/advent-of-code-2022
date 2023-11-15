@@ -1,4 +1,3 @@
-// Day 9: Rope Bridge
 #include <fstream>
 #include <iostream>
 #include <string>
